@@ -62,6 +62,7 @@ namespace compcari
      * Input
      * @param V                 vertex positions. (#Vx3)
      * @param prep_mesh         the result of 'preprocess_mesh'
+     * @param gamma             exaggeration factor. 0.0 means no exaggeration
      *
      * Output
      * @param prep_problem      preprocessing result.
@@ -85,6 +86,7 @@ namespace compcari
      * @param V_ref             vertex positions of a reference shape (#Vx3)
      * @param V                 vertex positions. (#Vx3)
      * @param prep_mesh         the result of 'preprocess_mesh'
+     * @param beta              exaggeration factor. 0.0 means no exaggeration
      *
      * Output
      * @param prep_problem      preprocessing result.
