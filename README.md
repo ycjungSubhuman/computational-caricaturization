@@ -11,7 +11,9 @@ This is an unofficial reproduction of "Computational caricaturization of surface
 
 ### Build Command
 
-`mkdir build && cmake -DCMAKE_BUILD_TYPE=Release ../ && make`
+`git clone <URL> --recursive <dir>`
+
+`cd <dir> && mkdir build && cmake -DCMAKE_BUILD_TYPE=Release ../ && make`
 
 ## Demo executable
 
