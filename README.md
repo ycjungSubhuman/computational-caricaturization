@@ -46,7 +46,7 @@ For the semantics of the exaggeration factors beta and gamma, please refer to th
 
 ![image](example/snapshot00.png)
 
-#### Reference
+#### Input
 
 ![image](example/snapshot07.png)
 
