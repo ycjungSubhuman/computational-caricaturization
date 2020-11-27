@@ -38,6 +38,20 @@ For the semantics of the exaggeration factors beta and gamma, please refer to th
 
 ![image](example/snapshot03.png)
 
+### With reference
+
+#### Reference
+
+![image](example/snapshot00.png)
+
+#### Reference
+
+![image](example/snapshot07.png)
+
+#### Result with beta = 0.6
+
+![image](example/snapshot06.png)
+
 ## Discussion
 
 * Although the algorithm may give us interesting shapes, this algorithm largely modifies global scale of input mesh (i.e. the size of the bounding box). There may be some possible improvements.
