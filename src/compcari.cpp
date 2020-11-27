@@ -6,7 +6,7 @@
 #include <igl/grad.h>
 #include <igl/cotmatrix.h>
 #include <igl/massmatrix.h>
-#include <igl/gaussian_curvature.h>
+#include <igl/principal_curvature.h>
 #include <igl/average_onto_faces.h>
 
 namespace compcari
@@ -80,7 +80,12 @@ namespace compcari
         igl::cotmatrix(V, F, prep_mesh.L);
         divergence(V, F, prep_mesh.Div);
         igl::grad(V, F, prep_mesh.G);
-        igl::gaussian_curvature(V, F, prep_mesh.C_gaussian);
+        igl::principal_curvature(V, F, prep_mesh.dir_max_principal,
+                                 prep_mesh.dir_min_principal, prep_mesh.C_max,
+                                 prep_mesh.C_min);
+        prep_mesh.C_mean = (prep_mesh.C_max + prep_mesh.C_min) / 2.0;
+        prep_mesh.C_gaussian =
+            (prep_mesh.C_max.array() * prep_mesh.C_min.array()).matrix();
     }
 
     void preprocess_problem_caricature_noref(
