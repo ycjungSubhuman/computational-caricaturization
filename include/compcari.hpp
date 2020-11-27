@@ -12,7 +12,6 @@ namespace compcari
     {
         Eigen::MatrixXi F;                 // Face vertex indices
         Eigen::SparseMatrix<double> L;     // Laplacian operator
-        Eigen::SparseMatrix<double> M;     // Mass matrix
         Eigen::SparseMatrix<double> Div;   // Divergence operator
         Eigen::SparseMatrix<double> G;     // Gradient operator
         Eigen::MatrixXd dir_min_principal; // Principal minimum curvature directions
@@ -31,7 +30,6 @@ namespace compcari
     typedef struct ProblemPrep
     {
         Eigen::SparseMatrix<double> A;
-        Eigen::SparseMatrix<double> Msub;
         Eigen::VectorXd left;           // Leftmost column of Laplacian without its first element
         Decomposition dec;              // Matrix decomposition of the problem
         std::vector<Eigen::VectorXd> b; // Differential coordinate

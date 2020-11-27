@@ -20,7 +20,6 @@ namespace compcari
         {
             prep_problem.b.resize(3);
             const auto &L = prep_mesh.L;
-            const auto &M = prep_mesh.M;
             prep_problem.A = L.block(1, 1, L.rows() - 1, L.cols() - 1);
             prep_problem.left = L.block(1, 0, L.rows() - 1, 1);
             prep_problem.dec.compute(prep_problem.A);
@@ -29,7 +28,6 @@ namespace compcari
                 throw std::runtime_error("Solve failed");
             }
             prep_problem.x0 = V.row(0).transpose();
-            prep_problem.Msub = M.block(1, 1, M.rows() - 1, M.cols() - 1);
         }
 
         void divergence(const Eigen::MatrixXd &V, const Eigen::MatrixXi &F,
@@ -80,7 +78,6 @@ namespace compcari
     {
         prep_mesh.F = F;
         igl::cotmatrix(V, F, prep_mesh.L);
-        igl::massmatrix(V, F, igl::MASSMATRIX_TYPE_VORONOI, prep_mesh.M);
         divergence(V, F, prep_mesh.Div);
         igl::grad(V, F, prep_mesh.G);
         igl::principal_curvature(V, F, prep_mesh.dir_max_principal,
@@ -139,7 +136,6 @@ namespace compcari
         const int num_vertex = prep_problem.b.at(0).rows();
         V_result.resize(num_vertex, 3);
 
-        const auto &Msub = prep_problem.Msub;
         const auto &b = prep_problem.b;
         const auto &left = prep_problem.left;
         const auto &x0 = prep_problem.x0;
