@@ -24,7 +24,7 @@ namespace compcari
         Eigen::VectorXd C_gaussian;        // Gaussian curvature for each vertex
     } MeshPrep;
 
-    using Decomposition = Eigen::SparseLU<Eigen::SparseMatrix<double>>;
+    using Decomposition = Eigen::SimplicialLDLT<Eigen::SparseMatrix<double>>;
 
     // Problem pre-precessing results.
     typedef struct ProblemPrep
